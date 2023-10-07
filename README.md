@@ -17,7 +17,7 @@ Pombi is a e-commerce website that focus on selling kids clothes ranging from 0 
 
 Access at:
 
-- [https://pombi.netlify.app](https://pombi.netlify.app)
+- [https://pombi.vercel.app](https://pombi.vercel.app)
 - [https://pombi.jeffrymahbuubi.com](https://pombi.jeffrymahbuubi.com)
 
 ## Our Design
