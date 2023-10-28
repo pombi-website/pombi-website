@@ -57,7 +57,7 @@ export default function HomePage() {
         <div className="grid grid-cols-3 gap-4 mt-4">
           {/* Each product */}
           <div className="bg-gray-200 rounded-md p-4">
-            <img src="product-image-url" alt="Product" />
+            <img src="#" alt="Product" />
             <div className="mt-2">
               <h3>Baju Anak Laki</h3>
               <p>Baju Anak 01</p>
