@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
+export default function IndexRoute() {
   return (
     <div className="bg-white">
       {/* Header */}
