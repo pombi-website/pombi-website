@@ -7,3 +7,4 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function ProductsRoute() {
   return <div>Products</div>;
 }
+
