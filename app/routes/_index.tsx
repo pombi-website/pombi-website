@@ -34,11 +34,7 @@ export default function Index() {
             Beli baju anak berkualitas. Menyediakan berbagai macam baju anak dan
             hampers bayi.
           </p>
-          <img
-            src="baby-image-url"
-            alt="Baby Image"
-            className="mt-4 rounded-md"
-          />{" "}
+          <img src="#" alt="Baby" className="mt-4 rounded-md" />{" "}
           {/* Replace "baby-image-url" with imported image if needed */}
         </div>
       </section>
@@ -100,36 +96,3 @@ export default function Index() {
     </div>
   );
 }
-
-// export default function Index() {
-//   return (
-//     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-//       <h1 className="text-3xl font-bold underline">Welcome to Remix</h1>
-//       <ul>
-//         <li>
-//           <a
-//             target="_blank"
-//             href="https://remix.run/tutorials/blog"
-//             rel="noreferrer"
-//           >
-//             15m Quickstart Blog Tutorial
-//           </a>
-//         </li>
-//         <li>
-//           <a
-//             target="_blank"
-//             href="https://remix.run/tutorials/jokes"
-//             rel="noreferrer"
-//           >
-//             Deep Dive Jokes App Tutorial
-//           </a>
-//         </li>
-//         <li>
-//           <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-//             Remix Docs
-//           </a>
-//         </li>
-//       </ul>
-//     </div>
-//   );
-// }
