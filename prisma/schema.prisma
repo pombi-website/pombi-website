@@ -19,7 +19,7 @@ model Product {
   description String @db.Text
   imageURL    String
   sku         String // Standard Keeping Unit
-  slug        String // SEO-friendly URL identifier
+  slug        String @unique // SEO-friendly URL identifier
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
