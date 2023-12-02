@@ -1,144 +1,36 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
+
+// JSON data for seeding
+import dataProducts from './data/products.json';
 
 const prisma = new PrismaClient();
+const slugify = require('slugify');
+
+const seedProducts = dataProducts.map((product) => ({
+  ...product,
+  slug: slugify(product.name, {
+    lower: true,
+    strict: true,
+    trim: true,
+  }),
+}));
 
 async function main() {
+  await prisma.product.deleteMany();
+
   await prisma.product.createMany({
-    data: [
-      {
-        name: "Perempuan Pombi 1",
-        price: 16000,
-        description: "Desain elegan dan kontemporer, cocok untuk acara formal.",
-        imageURL:
-          "https://ucarecdn.com/aeacf574-20fe-4cfb-9ea0-97eaeb4ba640/Perempuan017.png",
-      },
-      {
-        name: "Laki-Laki Pombi 1",
-        price: 16000,
-        description:
-          "Gaya klasik dengan sentuhan modern, ideal untuk pakaian sehari-hari.",
-        imageURL:
-          "https://ucarecdn.com/e7c2a224-73a4-47f7-9ae4-c378c807307a/Perempuan01.png",
-      },
-      {
-        name: "Laki-Laki Pombi 2",
-        price: 16000,
-        description:
-          "Gaya kasual yang nyaman, cocok untuk aktivitas sehari-hari.",
-        imageURL:
-          "https://ucarecdn.com/2697a682-d3be-4a98-a2ba-dc8d3e2b15eb/Perempuan013.png",
-      },
-      {
-        name: "Perempuan Pombi 2",
-        price: 16000,
-        description: "Desain feminin dan anggun, sempurna untuk acara khusus.",
-        imageURL:
-          "https://ucarecdn.com/b44c831a-9945-412d-bf47-245dae10dd7e/Perempuan016.png",
-      },
-      {
-        name: "Laki-Laki Pombi 3",
-        price: 16000,
-        description:
-          "Gaya elegan dan profesional, ideal untuk lingkungan kerja.",
-        imageURL:
-          "https://ucarecdn.com/972c603c-8746-4245-918f-4810e0d922fc/Perempuan015.png",
-      },
-      {
-        name: "Laki-Laki Pombi 4",
-        price: 16000,
-        description: "Desain minimalis dan modern, ideal untuk acara kasual.",
-        imageURL:
-          "https://ucarecdn.com/2d31f8d2-ce27-4a70-9dc9-893aee4b4fa8/Perempuan014.png",
-      },
-      {
-        name: "Perempuan Pombi 3",
-        price: 16000,
-        description:
-          "Gaya chic dan trendi, sempurna untuk hangout dan pertemuan sosial.",
-        imageURL:
-          "https://ucarecdn.com/08305b53-7e80-4a1c-9261-5095d2d021b4/Perempuan012.png",
-      },
-      {
-        name: "Perempuan Pombi 4",
-        price: 16000,
-        description: "Elegan dan mewah, cocok untuk acara malam dan pesta.",
-        imageURL:
-          "https://ucarecdn.com/38ca1357-cc47-4765-b3e5-ac9c02f79af7/Perempuan01.png",
-      },
-      {
-        name: "Perempuan Pombi 5",
-        price: 16000,
-        description:
-          "Desain kontemporer dengan sentuhan feminin, ideal untuk kantor atau kampus.",
-        imageURL:
-          "https://ucarecdn.com/068b742c-f798-4b3b-8db8-8fdc34a0ef2f/Perempuan013.png",
-      },
-      {
-        name: "Laki-Laki Pombi 5",
-        price: 16000,
-        description: "Gaya sporty dan dinamis, cocok untuk aktivitas outdoor.",
-        imageURL:
-          "https://ucarecdn.com/033b43e9-7c49-4e34-8880-fb8e478e9e41/Perempuan014.png",
-      },
-      {
-        name: "Perempuan Pombi 6",
-        price: 16000,
-        description:
-          "Sempurna untuk acara formal, dengan detail yang halus dan mewah.",
-        imageURL:
-          "https://ucarecdn.com/f68eaadc-5a72-45f9-969d-e9167cc5eb65/Perempuan012.png",
-      },
-      {
-        name: "Perempuan Pombi 7",
-        price: 16000,
-        description:
-          "Desain klasik dengan sentuhan modern, ideal untuk pertemuan bisnis.",
-        imageURL:
-          "https://ucarecdn.com/e1ee34fa-912d-423e-9dd1-9213063ee179/Perempuan014.png",
-      },
-      {
-        name: "Perempuan Pombi 8",
-        price: 16000,
-        description: "Cocok untuk kegiatan sehari-hari, nyaman dan stylish.",
-        imageURL:
-          "https://ucarecdn.com/33cc8e7d-0442-4f74-913b-50f0cfdc0162/Perempuan013.png",
-      },
-      {
-        name: "Perempuan Pombi 9",
-        price: 16000,
-        description:
-          "Desain yang versatile, cocok untuk berbagai acara dan aktivitas.",
-        imageURL:
-          "https://ucarecdn.com/96fdef24-1e16-4cb1-b97c-d268063d9aad/Perempuan015.png",
-      },
-      {
-        name: "Perempuan Pombi 10",
-        price: 16000,
-        description:
-          "Gaya kasual yang chic, ideal untuk hangout bersama teman.",
-        imageURL:
-          "https://ucarecdn.com/658d5eed-29d2-4ac2-bb15-4cb03a3e34c5/Perempuan01.png",
-      },
-      {
-        name: "Perempuan Pombi 11",
-        price: 16000,
-        description:
-          "Sempurna untuk acara kasual, dengan desain yang ringan dan nyaman.",
-        imageURL:
-          "https://ucarecdn.com/8dc0ae15-1de5-4f3d-8791-5cb14ccd748d/Perempuan012.png",
-      },
-    ],
+    data: seedProducts,
   });
 }
 
 main()
   .then(async () => {
-    console.log("Seeding complete");
+    console.log('Seeding complete');
     await prisma.$disconnect();
   })
   .catch((e) => {
     console.error(e);
-    console.log("Seeding failed");
+    console.log('Seeding failed');
     prisma.$disconnect();
     process.exit(1);
   });
