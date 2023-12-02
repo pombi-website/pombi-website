@@ -1,10 +1,10 @@
 import { PrismaClient } from '@prisma/client';
+import slugify from 'slugify';
 
 // JSON data for seeding
 import dataProducts from './data/products.json';
 
 const prisma = new PrismaClient();
-const slugify = require('slugify');
 
 const seedProducts = dataProducts.map((product) => ({
   ...product,
