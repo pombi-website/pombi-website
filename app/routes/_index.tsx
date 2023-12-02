@@ -18,7 +18,10 @@ export default function IndexRoute() {
       {/* Why Choose Us */}
 
       {/* Products */}
-      <Link to="/products" className="text-blue-600 underline">
+      <Link
+        to="/products"
+        className="mx-auto mt-16 text-center text-blue-600 underline"
+      >
         Lihat Semua Produk
       </Link>
 
