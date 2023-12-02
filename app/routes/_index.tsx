@@ -12,12 +12,15 @@ export default function IndexRoute() {
   return (
     <main>
       {/* Header */}
-    
+
       {/* Welcome Section */}
 
       {/* Why Choose Us */}
 
       {/* Products */}
+      <Link to="/products" className="text-blue-600 underline">
+        Lihat Semua Produk
+      </Link>
 
       {/* Footer */}
     </main>
