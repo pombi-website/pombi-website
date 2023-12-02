@@ -1,9 +1,10 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from '@remix-run/node';
+import { Link } from '@remix-run/react';
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Pombi Baju Anak" },
-    { name: "description", content: "Pombi Baju Anak Indonesia" },
+    { title: 'Pombi Baju Anak' },
+    { name: 'description', content: 'Pombi Baju Anak Indonesia' },
   ];
 };
 
@@ -29,33 +30,45 @@ export default function IndexRoute() {
       {/* Welcome Section */}
       <section className="p-4">
         <div className="bg-gray-200 rounded-md p-8">
-          <h1 className="text-2xl font-bold">Selamat datang di Pombi</h1>
+          <h1 className="text-2xl font-bold">
+            Selamat datang di Pombi
+          </h1>
           <p>
-            Beli baju anak berkualitas. Menyediakan berbagai macam baju anak dan
-            hampers bayi.
+            Beli baju anak berkualitas. Menyediakan berbagai macam
+            baju anak dan hampers bayi.
           </p>
-          <img src="#" alt="Baby" className="mt-4 rounded-md" />{" "}
+          <img src="#" alt="Baby" className="mt-4 rounded-md" />{' '}
           {/* Replace "baby-image-url" with imported image if needed */}
         </div>
       </section>
 
       {/* Why Choose Us */}
       <section className="p-4">
-        <h2 className="text-xl font-bold">Kenapa Memilih Produk Kami</h2>
+        <h2 className="text-xl font-bold">
+          Kenapa Memilih Produk Kami
+        </h2>
         <p>
-          Dukung keberlangsungan UMKM Indonesia! Dengan setiap pembelian produk
-          kami, Anda mendukung pertumbuhan bisnis lokal dan melestarikan
-          kekayaan budaya Indonesia.
+          Dukung keberlangsungan UMKM Indonesia! Dengan setiap
+          pembelian produk kami, Anda mendukung pertumbuhan bisnis
+          lokal dan melestarikan kekayaan budaya Indonesia.
         </p>
         <div className="flex space-x-4 mt-4">
-          <img src="/assets/images/indonesia.png" alt="100% Indonesia" />
-          <img src="/assets/images/bangga.webp" alt="Bangga Buatan Indonesia" />
+          <img
+            src="/assets/images/indonesia.png"
+            alt="100% Indonesia"
+          />
+          <img
+            src="/assets/images/bangga.webp"
+            alt="Bangga Buatan Indonesia"
+          />
         </div>
       </section>
 
       {/* Products */}
       <section className="p-4">
         <h2 className="text-xl font-bold">Produk Kami</h2>
+        <Link to="/products">Lihat Semua Produk</Link>{' '}
+        {/* Add this line */}
         <div className="grid grid-cols-3 gap-4 mt-4">
           {/* Each product */}
           <div className="bg-gray-200 rounded-md p-4">
