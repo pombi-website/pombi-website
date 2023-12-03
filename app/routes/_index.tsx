@@ -1,3 +1,4 @@
+import { Layout } from '@/components/layout/layout';
 import type { MetaFunction } from '@remix-run/node';
 import { Link } from '@remix-run/react';
 
@@ -10,7 +11,7 @@ export const meta: MetaFunction = () => {
 
 export default function IndexRoute() {
   return (
-    <main>
+    <Layout>
       {/* Header */}
 
       {/* Welcome Section */}
@@ -24,8 +25,9 @@ export default function IndexRoute() {
       >
         Lihat Semua Produk
       </Link>
+      <img src="" alt="" />
 
       {/* Footer */}
-    </main>
+    </Layout>
   );
 }
