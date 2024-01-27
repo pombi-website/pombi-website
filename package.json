@@ -17,6 +17,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@fontsource-variable/montserrat": "^5.0.17",
     "@prisma/client": "^5.5.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@remix-run/css-bundle": "^2.0.1",
