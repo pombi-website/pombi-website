@@ -1,4 +1,4 @@
-import { prisma } from '@/db.server';
+import { prisma } from '@/libs/db.server';
 
 export async function getAllProducts() {
   return prisma.product.findMany({
