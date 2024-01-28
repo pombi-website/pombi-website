@@ -1,24 +1,3 @@
-<<<<<<< HEAD
-import { PrismaClient } from "@prisma/client";
-
-let prisma = new PrismaClient();
-
-declare global {
-  var __db__: PrismaClient | undefined;
-}
-
-if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient();
-} else {
-  if (!global.__db__) {
-    global.__db__ = new PrismaClient();
-  }
-  prisma = global.__db__;
-  prisma.$connect();
-}
-
-export { prisma };
-=======
 import { PrismaClient, type Prisma } from '@prisma/client';
 import chalk from 'chalk';
 
@@ -69,4 +48,3 @@ export function handleQueryEvent(event: Prisma.QueryEvent) {
 
   console.info(`💎 Prisma: ${dur}: ${event.query}`);
 }
->>>>>>> d1787595219814de24f9b8f86659392e719bbf4d

@@ -19,7 +19,7 @@ export function HeaderNavigation() {
         <Link to={`/`}>
           <span>
             <img
-              src="/images/logo-pombi.webp"
+              src="/images/logo-pombi.png"
               alt="logo-pombi"
               className="w-16"
             />
