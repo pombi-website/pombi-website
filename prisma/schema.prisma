@@ -11,6 +11,19 @@ datasource db {
   relationMode = "prisma"
 }
 
+model User {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  username String  @unique
+  phone    String? @unique
+
+  fullname String
+  nikcname String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Product {
   id String @id @default(cuid())
 
