@@ -8,7 +8,7 @@ export const sessionStorage = createCookieSessionStorage({
     sameSite: 'lax', // this helps with CSRF
     path: '/', // remember to add this so the cookie will work in all routes
     httpOnly: true, // for security reasons, make this cookie http only
-    secrets: [parsedEnv.SESSION_SECRET], // replace this with an actual secret
+    secrets: [parsedEnv.SESSION_SECRET], // replace this with an actual secret (added SESSION_SECRET in vercel)
     secure: process.env.NODE_ENV === 'production', // enable this in prod only
   },
 });
