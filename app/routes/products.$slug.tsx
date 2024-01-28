@@ -1,3 +1,4 @@
+import { Layout } from '@/components/layout';
 import { getProduct } from '@/models/product.server';
 import type {
   LoaderFunctionArgs,
@@ -22,9 +23,11 @@ export const loader = async ({
   }
 
   const product = await getProduct(params.slug);
+
   if (!product) {
     throw new Error('Product not found');
   }
+
   return json({ product });
 };
 
@@ -32,11 +35,13 @@ export default function ProductRoute() {
   const { product } = useLoaderData<typeof loader>();
 
   return (
-    <div>
-      <h1>{product.name}</h1>
-      <img src={product.imageURL} alt={product.name} />
-      <p>{product.description}</p>
-      <p>Rp {product.price}</p>
-    </div>
+    <Layout>
+      <div>
+        <h1>{product.name}</h1>
+        <img src={product.imageURL} alt={product.name} />
+        <p>{product.description}</p>
+        <p>Rp {product.price}</p>
+      </div>
+    </Layout>
   );
 }
